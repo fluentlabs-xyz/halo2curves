@@ -117,13 +117,9 @@ impl ff::Field for Fp {
         ])
     }
 
-    fn zero() -> Self {
-        Self::zero()
-    }
+    const ZERO: Self = Fp::zero();
 
-    fn one() -> Self {
-        Self::one()
-    }
+    const ONE: Self = Fp::one();
 
     fn double(&self) -> Self {
         self.double()
@@ -229,13 +225,9 @@ impl ff::PrimeField for Fp {
         Choice::from(self.to_repr()[0] & 1)
     }
 
-    fn multiplicative_generator() -> Self {
-        unimplemented!();
-    }
+    const MULTIPLICATIVE_GENERATOR: Self = unimplemented!();
 
-    fn root_of_unity() -> Self {
-        unimplemented!();
-    }
+    const ROOT_OF_UNITY: Self = unimplemented!();
 }
 
 impl SqrtRatio for Fp {

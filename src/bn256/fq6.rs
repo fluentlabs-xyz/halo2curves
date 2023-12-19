@@ -384,21 +384,9 @@ impl Field for Fq6 {
         }
     }
 
-    fn zero() -> Self {
-        Fq6 {
-            c0: Fq2::zero(),
-            c1: Fq2::zero(),
-            c2: Fq2::zero(),
-        }
-    }
+    const ZERO: Self = Fq6 { c0: Fq2::zero(), c1: Fq2::zero(), c2: Fq2::zero(), };
 
-    fn one() -> Self {
-        Fq6 {
-            c0: Fq2::one(),
-            c1: Fq2::zero(),
-            c2: Fq2::zero(),
-        }
-    }
+    const ONE: Self = Fq6 { c0: Fq2::one(), c1: Fq2::zero(), c2: Fq2::zero(), };
 
     fn is_zero(&self) -> Choice {
         self.c0.is_zero() & self.c1.is_zero()
