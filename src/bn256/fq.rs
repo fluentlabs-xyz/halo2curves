@@ -151,13 +151,20 @@ impl ff::Field for Fq {
         Self::from_bytes_wide(&random_bytes)
     }
 
+    const ZERO: Self = Fq::zero();
+
+/*
     fn zero() -> Self {
         Self::zero()
     }
+*/
 
+    const ONE: Self = Fq::one();
+/*
     fn one() -> Self {
         Self::one()
     }
+*/
 
     fn double(&self) -> Self {
         self.double()
@@ -247,13 +254,21 @@ impl ff::PrimeField for Fq {
         Choice::from(self.to_repr()[0] & 1)
     }
 
+    const MULTIPLICATIVE_GENERSTOR: Self = unimplemented!();
+
+/*
     fn multiplicative_generator() -> Self {
         unimplemented!()
     }
+*/
 
+    const ROOT_OF_UNITY: Self = unimplemented!();
+
+/*
     fn root_of_unity() -> Self {
         unimplemented!()
     }
+*/
 }
 
 impl SqrtRatio for Fq {
