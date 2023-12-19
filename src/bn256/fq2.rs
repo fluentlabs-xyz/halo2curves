@@ -315,19 +315,9 @@ impl Field for Fq2 {
         }
     }
 
-    fn zero() -> Self {
-        Fq2 {
-            c0: Fq::zero(),
-            c1: Fq::zero(),
-        }
-    }
+    const ZERO: Self = Fq2 { c0: Fq::zero(), c1: Fq::zero(), };
 
-    fn one() -> Self {
-        Fq2 {
-            c0: Fq::one(),
-            c1: Fq::zero(),
-        }
-    }
+    const ONE: Self = Fq2 { c0: Fq::one(), c1: Fq::zero(), };
 
     fn is_zero(&self) -> Choice {
         self.c0.is_zero() & self.c1.is_zero()
@@ -563,13 +553,11 @@ impl ff::PrimeField for Fq2 {
         Choice::from(self.to_repr().as_ref()[0] & 1)
     }
 
-    fn multiplicative_generator() -> Self {
-        unimplemented!()
-    }
+    const MULTIPLICATIVE_GENERATOR: Self = unimplemented!();
 
-    fn root_of_unity() -> Self {
-        unimplemented!()
-    }
+    const ROOT_OF_UNITY: Self = unimplemented!();
+
+
 }
 
 impl crate::serde::SerdeObject for Fq2 {

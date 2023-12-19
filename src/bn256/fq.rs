@@ -254,7 +254,7 @@ impl ff::PrimeField for Fq {
         Choice::from(self.to_repr()[0] & 1)
     }
 
-    const MULTIPLICATIVE_GENERSTOR: Self = unimplemented!();
+    const MULTIPLICATIVE_GENERATOR: Self = unimplemented!();
 
 /*
     fn multiplicative_generator() -> Self {
