@@ -256,19 +256,8 @@ impl ff::PrimeField for Fq {
 
     const MULTIPLICATIVE_GENERATOR: Self = unimplemented!();
 
-/*
-    fn multiplicative_generator() -> Self {
-        unimplemented!()
-    }
-*/
-
     const ROOT_OF_UNITY: Self = unimplemented!();
 
-/*
-    fn root_of_unity() -> Self {
-        unimplemented!()
-    }
-*/
 }
 
 impl SqrtRatio for Fq {
