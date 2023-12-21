@@ -275,12 +275,36 @@ macro_rules! field_common {
             }
         }
 
+        impl<'b> std::iter::Sum<A = &'b $field> for $field {
+            #[inline]
+            fn sum<I>(iter: I) -> Self
+            where I: Iterator<Item = A> {
+                let mut start = $field::zero();
+                for item in iter {
+                    start = start + item;
+                }
+                start
+            }
+        }
+
         impl<'a, 'b> Mul<&'b $field> for &'a $field {
             type Output = $field;
 
             #[inline]
             fn mul(self, rhs: &'b $field) -> $field {
                 self.mul(rhs)
+            }
+        }
+
+        impl<'b> std::iter::Product<A = &'b $field> for $field {
+            #[inline]
+            fn product<I>(iter: I) -> Self
+            where I: Iterator<Item = A> {
+                let mut start = $field::one();
+                for item in iter {
+                    start = start * item;
+                }
+                start
             }
         }
 
