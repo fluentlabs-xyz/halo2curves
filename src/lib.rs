@@ -18,6 +18,8 @@ pub extern crate group;
 #[cfg(test)]
 pub mod tests;
 
+pub use ff;
+
 #[cfg(all(feature = "prefetch", target_arch = "x86_64"))]
 #[inline(always)]
 pub fn prefetch<T>(data: &[T], offset: usize) {
